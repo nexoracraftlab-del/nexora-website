@@ -80,3 +80,16 @@ body>.ambient{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:n
 .project-card{min-height:0;aspect-ratio:auto}
 .project-card .text-button{margin-top:12px;padding-top:0}
 @media(max-width:780px){.hero{min-height:0;padding-block:32px 28px}.hero-description{max-width:46ch}}
+
+/* Clear contact actions with a provider-independent email fallback. */
+.hero .contact-caption{display:none}
+.contact-section .social-links{flex-wrap:wrap;direction:inherit;gap:12px}
+.contact-section .social-icon{display:inline-flex;justify-content:center;gap:10px;width:auto;height:auto;min-height:48px;padding:10px 18px;border-radius:999px;font-size:15px;color:var(--ink)}
+.contact-caption{line-height:1.7}
+.email-options{max-width:680px;margin:24px auto 0;text-align:center;color:var(--mut);font-size:14px}
+.email-address{display:block;font:500 16px/1.8 var(--font-latin);direction:ltr;overflow-wrap:anywhere;color:#a9c5ff;margin-top:6px}
+.email-options-actions{display:flex;flex-wrap:wrap;gap:12px 22px;justify-content:center;margin-top:6px}
+.email-options-actions .text-button{font-family:var(--font-body);font-size:14px}
+.email-help{font-size:13px;line-height:1.9;margin:16px 0 0}
+#email-copy-status{min-height:1.9em;color:#a9c5ff;margin:8px 0 0}
+@media(max-width:540px){.contact-section .social-links{flex-direction:column;align-items:stretch}.contact-section .social-icon{width:100%}.email-address{font-size:14px}}
