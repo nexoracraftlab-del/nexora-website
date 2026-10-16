@@ -10,7 +10,7 @@ Publish the `main` branch from `/ (root)` in Settings → Pages. All asset paths
 
 ## Content
 
-Project cards are concepts planned for development, not delivered client projects. Their status is shown on each card and in the details dialog.
+NOIR Coffee is an implemented demonstration project with a [public interactive menu](https://nexoracraftlab-del.github.io/noir-coffee-menu/#menu). Its café, products and prices are fictional. The other two project cards remain planned concepts. No card claims a delivered client project. The NOIR preview is a real screenshot; its underlying photo and font credits are documented in the [NOIR repository](https://github.com/nexoracraftlab-del/noir-coffee-menu/blob/main/docs/ASSETS.md).
 
 Contact: nexoracraftlab@gmail.com · https://www.instagram.com/nexoradevlab/
 
