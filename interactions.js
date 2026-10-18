@@ -2,7 +2,7 @@
 (() => {
   const finePointer = matchMedia('(hover:hover) and (pointer:fine)');
   const reducedMotion = matchMedia('(prefers-reduced-motion:reduce)');
-  const panels = [...document.querySelectorAll('.panel:not(.journey-card)')];
+  const panels = [...document.querySelectorAll('.panel')];
   const cleanups = [];
   panels.forEach(panel => {
     let frame = 0;
@@ -45,7 +45,7 @@
   addEventListener('resize', resetAll, {passive:true});
 })();
 
-// A soft halo and two trailing glows; the operating system cursor stays intact.
+// One soft, composited light follows the native cursor, with no trailing copies.
 (() => {
   const fine = matchMedia('(hover:hover) and (pointer:fine)');
   const wide = matchMedia('(min-width:781px)');
@@ -53,12 +53,8 @@
   const aura = document.createElement('div');
   aura.className = 'cursor-aura';
   aura.setAttribute('aria-hidden', 'true');
-  const dots = Array.from({length:3}, () => {
-    const dot = document.createElement('i'); aura.append(dot); return dot;
-  });
   document.body.append(aura);
-  const points = dots.map(() => ({x:0,y:0}));
-  let target = null, frame = 0, lastTime = 0;
+  let target = null, point = {x:0,y:0}, frame = 0, lastTime = 0;
   function hide() {
     cancelAnimationFrame(frame); frame = 0; lastTime = 0; target = null;
     aura.classList.remove('is-visible');
@@ -68,21 +64,16 @@
     if (!target || !fine.matches || !wide.matches || reduced.matches || document.hidden) { hide(); return; }
     const elapsed = lastTime ? Math.min(40, time - lastTime) : 16;
     lastTime = time;
-    let distance = 0;
-    points.forEach((point, i) => {
-      const aim = i ? points[i - 1] : target;
-      const blend = 1 - Math.exp(-elapsed / (i ? 80 + i * 25 : 45));
-      point.x += (aim.x - point.x) * blend;
-      point.y += (aim.y - point.y) * blend;
-      dots[i].style.transform = 'translate3d(' + point.x.toFixed(2) + 'px,' + point.y.toFixed(2) + 'px,0)';
-      distance += Math.abs(target.x - point.x) + Math.abs(target.y - point.y);
-    });
-    if (distance > .4) frame = requestAnimationFrame(tick);
+    const blend = 1 - Math.exp(-elapsed / 70);
+    point.x += (target.x - point.x) * blend;
+    point.y += (target.y - point.y) * blend;
+    aura.style.transform = 'translate3d(' + (point.x - 170).toFixed(2) + 'px,' + (point.y - 170).toFixed(2) + 'px,0)';
+    if (Math.abs(target.x - point.x) + Math.abs(target.y - point.y) > .25) frame = requestAnimationFrame(tick);
     else lastTime = 0;
   }
   document.addEventListener('pointermove', event => {
     if (event.pointerType !== 'mouse' || !fine.matches || !wide.matches || reduced.matches) return;
-    if (!target) points.forEach(point => { point.x = event.clientX; point.y = event.clientY; });
+    if (!target) point = {x:event.clientX,y:event.clientY};
     target = {x:event.clientX,y:event.clientY};
     aura.classList.add('is-visible');
     if (!frame) frame = requestAnimationFrame(tick);

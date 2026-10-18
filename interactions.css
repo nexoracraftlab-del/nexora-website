@@ -13,3 +13,29 @@
  #navigation .nav-indicator{display:none}
 }
 @media(prefers-reduced-motion:reduce){.panel.is-pointer-active,.project-card.is-pointer-active{transform:none}.panel,.nav-wrap #navigation,.nav-wrap #navigation.open{transition:none!important}}
+
+/* A single atmospheric light; it never captures clicks or changes the cursor. */
+.cursor-aura{position:fixed;top:0;left:0;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:6;opacity:0;background:radial-gradient(circle,rgba(102,172,255,.15) 0%,rgba(47,117,255,.09) 28%,rgba(31,107,255,.035) 48%,transparent 70%);filter:blur(14px);will-change:transform;transition:opacity .3s ease}
+.cursor-aura.is-visible{opacity:1}
+body:has(dialog[open]) .cursor-aura{opacity:0}
+.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.project-card{height:100%;box-sizing:border-box}
+.project-bot h3{font-family:inherit}
+html[lang="en"] .project-bot h3{font-family:var(--font-latin)}
+.project-card .project-disclosure{font-size:13px;color:var(--muted);margin-block:0 8px}
+.project-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:auto}
+.project-actions .text-button{margin-top:0}
+.project-actions .secondary-link{font-size:13px}
+.bot-preview{position:relative;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:15px;padding:18px 24px;background:radial-gradient(ellipse at 80% 10%,#173b7155,transparent 65%),#0a1426;color:#bad7ff;max-height:180px;overflow:hidden}
+.bot-preview-heading{display:flex;align-items:center;gap:10px;font-family:var(--font-latin);font-size:10px;letter-spacing:.09em}
+.bot-preview-heading svg{width:24px;height:24px;flex:none}
+.bot-preview-heading>i{width:6px;height:6px;border-radius:50%;background:#8dc7ff;margin-inline-start:auto;box-shadow:0 0 12px #458aff88}
+.bot-console{background:#111f36;border:1px solid #284369;border-radius:10px;padding:12px 14px;display:grid;gap:8px}
+.bot-console-label{font-size:12px;color:#d7e7ff;line-height:1.5}
+.bot-console-line{height:3px;width:60%;border-radius:4px;background:#46648b}
+.bot-keyboard{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.bot-keyboard i{height:10px;border-radius:3px;background:#203a5d}
+.bot-sync{display:flex;align-items:center;gap:6px;color:#91b6e4;font-size:9px}
+.bot-sync i{width:4px;height:4px;flex:none;border-radius:50%;background:#82c9ee}
+@media(max-width:780px){.project-grid{grid-template-columns:minmax(0,1fr)}.cursor-aura{display:none}.bot-preview{padding:15px 18px}}
+@media(prefers-reduced-motion:reduce){.cursor-aura{display:none!important;transition:none}}

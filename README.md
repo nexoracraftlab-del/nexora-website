@@ -1,24 +1,13 @@
-# Nexora
-
-Persian and English website for Nexora: website design, digital menus and lightweight automation tools.
-
-Static HTML, CSS and JavaScript. No installation or build step is required. Open `index.html` or serve this directory with a static server.
-
-## GitHub Pages
-
-Publish the `main` branch from `/ (root)` in Settings → Pages. All asset paths are relative. `.nojekyll` disables Jekyll processing.
-
-## Content
-
-NOIR Coffee is an implemented demonstration project with a [public interactive menu](https://nexoracraftlab-del.github.io/noir-coffee-menu/#menu). Its café, products and prices are fictional. The other two project cards remain planned concepts. No card claims a delivered client project. The NOIR preview is a real screenshot; its underlying photo and font credits are documented in the [NOIR repository](https://github.com/nexoracraftlab-del/noir-coffee-menu/blob/main/docs/ASSETS.md).
-
-Contact: nexoracraftlab@gmail.com · https://www.instagram.com/nexoradevlab/
-
-Vazirmatn and Sora fonts are served locally; their original SIL Open Font Licenses are included in `fonts/`.
+# Nexora
 
+Bilingual Persian/English portfolio for Nexora: websites, digital menus and lightweight automation.
 
-## Interactive services route — 2026-10-17
+Static HTML, CSS and JavaScript; no installation or build dependency is required. GitHub Pages serves the repository root.
 
-The services section now follows a continuous curved route with scroll-driven highlighting and clickable, keyboard-accessible cards. Desktop and compact layouts retain the same three services; small screens use a readable vertical layout. A subtle pointer glow is limited to supported mouse devices. Reduced-motion preferences are respected.
+## Current portfolio — 2026-10-18
 
-Validation: JavaScript syntax checks and the existing journey behavior simulation passed. The final layout was inspected in Persian at 1280×720 and in Persian/English at 827×612 without horizontal overflow. Earlier mobile and reduced-motion checks are documented locally; they were not repeated for the final geometry adjustment.
+The animated service journey has been removed. A single soft cursor light replaces the previous three trailing glows; it is disabled for reduced motion, touch and narrow screens. The operating-system cursor is unchanged.
+
+Two implemented demonstrations are shown: NOIR Coffee's bilingual web menu and its Telegram Mini App / authorized management bot at https://t.me/CafeMenuPrototypebot . They are parts of a fictional demonstration, not delivered client projects. The bot currently depends on a local laptop process, and price updates may be delayed. Ordering, payments and a web admin panel are not implemented. Storefront and service-landing cards remain clearly marked as planned concepts.
+
+Fonts are local (Vazirmatn and Sora); original licenses remain under fonts/. Contact: nexoracraftlab@gmail.com · https://www.instagram.com/nexoradevlab/ .
